@@ -824,10 +824,11 @@
     <script>
         // Initialize tender database from localStorage or set default if not exists
         let tenderDatabase = JSON.parse(localStorage.getItem('tenderDatabase')) || {
-            "Tender A": { location: "Kanabediara", productType: "Product Type A", totalQty: 100, deadline: "2025-08-15" },
-            "Tender 2": { location: "Bataatha", productType: "Product Type 2", totalQty: 200, deadline: "2025-09-30" },
-            "Tender 3": { location: "Godagama", productType: "Product Type 3", totalQty: 300, deadline: "2025-10-15" },
-            "Tender 4": { location: "Godagama", productType: "Product Type 3", totalQty: 300, deadline: "2025-07-25" }
+            "SP2/CE(C&CS)/T/2024/45": { location: "Kanabediara", productType: "9/500", totalQty: 101, deadline: "2025-05-11" },
+            "SP2/CE(C&CS)/T/2024/45": { location: "Godagama", productType: "9/500", totalQty: 101, deadline: "2025-05-11" },
+            "SP2/CE(C&CS)/T/2024/45": { location: "Bataatha", productType: "9/500", totalQty: 303, deadline: "2025-05-11" },
+            "WPN/LNB/2024/226": { location: "Balangoda", productType: "13/850", totalQty: 101, deadline: "2025-05-02" },
+            "SP1/DGM/C5/054/24(N)": { location: "Embilipitiya", productType: "11/850", totalQty: 200, deadline: "2025-06-27" }
         };
 
         // Track used reference numbers to ensure uniqueness
