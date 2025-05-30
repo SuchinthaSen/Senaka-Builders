@@ -421,10 +421,12 @@
             <th>Material</th>
             <th>UOM</th>
             <th>Available Qty</th>
+            <th>UOM</th>
             <th>Request Qty</th>
             <th>Material</th>
             <th>UOM</th>
             <th>Available Qty</th>
+            <th>UOM</th>
             <th>Request Qty</th>
         </tr>
     </thead>
@@ -443,6 +445,14 @@
                 <input type="number" step="0.01" class="form-control">
             </td>
             <td>
+                <select class="form-control">
+                    <option value="Kg">Kg</option>
+                    <option value="M3">M3</option>
+                    <option value="Cube">Cube</option>
+                    <option value="Guage Boxes">Guage Boxes</option>
+                </select>
+            </td>
+            <td>
                 <input type="number" step="0.01" class="form-control">
             </td>
             <td>Metal</td>
@@ -455,6 +465,14 @@
             </td>
             <td>
                 <input type="number" step="0.01" class="form-control">
+            </td>
+            <td>
+                <select class="form-control">
+                    <option value="Kg">Kg</option>
+                    <option value="M3">M3</option>
+                    <option value="Cube">Cube</option>
+                    <option value="Guage Boxes">Guage Boxes</option>
+                </select>
             </td>
             <td>
                 <input type="number" step="0.01" class="form-control">
@@ -473,6 +491,14 @@
                 <input type="number" step="0.01" class="form-control">
             </td>
             <td>
+                <select class="form-control">
+                    <option value="Kg">Kg</option>
+                    <option value="M3">M3</option>
+                    <option value="Cube">Cube</option>
+                    <option value="Guage Boxes">Guage Boxes</option>
+                </select>
+            </td>
+            <td>
                 <input type="number" step="0.01" class="form-control">
             </td>
             <td>Tor Bar</td>
@@ -486,6 +512,14 @@
             </td>
             <td>
                 <input type="number" step="0.01" class="form-control">
+            </td>
+            <td>
+                <select class="form-control">
+                    <option value="Kg">Kg</option>
+                    <option value="M3">M3</option>
+                    <option value="Cube">Cube</option>
+                    <option value="Guage Boxes">Guage Boxes</option>
+                </select>
             </td>
             <td>
                 <input type="number" step="0.01" class="form-control">
@@ -505,6 +539,14 @@
                 <input type="number" step="0.01" class="form-control">
             </td>
             <td>
+                <select class="form-control">
+                    <option value="Kg">Kg</option>
+                    <option value="M3">M3</option>
+                    <option value="Cube">Cube</option>
+                    <option value="Guage Boxes">Guage Boxes</option>
+                </select>
+            </td>
+            <td>
                 <input type="number" step="0.01" class="form-control">
             </td>
             <td>HTS</td>
@@ -519,6 +561,14 @@
                 <input type="number" step="0.01" class="form-control">
             </td>
             <td>
+                <select class="form-control">
+                    <option value="Kg">Kg</option>
+                    <option value="M3">M3</option>
+                    <option value="Cube">Cube</option>
+                    <option value="Guage Boxes">Guage Boxes</option>
+                </select>
+            </td>
+            <td>
                 <input type="number" step="0.01" class="form-control">
             </td>
         </tr>
@@ -531,8 +581,17 @@
                     <option value="Bags">Bags</option>
                 </select>
             </td>
+
             <td>
                 <input type="number" step="0.01" class="form-control">
+            </td>
+            <td>
+                <select class="form-control">
+                    <option value="Kg">Kg</option>
+                    <option value="M3">M3</option>
+                    <option value="Cube">Cube</option>
+                    <option value="Guage Boxes">Guage Boxes</option>
+                </select>
             </td>
             <td>
                 <input type="number" step="0.01" class="form-control">
@@ -546,6 +605,14 @@
             </td>
             <td>
                 <input type="number" step="0.01" class="form-control">
+            </td>
+            <td>
+                <select class="form-control">
+                    <option value="Kg">Kg</option>
+                    <option value="M3">M3</option>
+                    <option value="Cube">Cube</option>
+                    <option value="Guage Boxes">Guage Boxes</option>
+                </select>
             </td>
             <td>
                 <input type="number" step="0.01" class="form-control">
@@ -600,6 +667,7 @@
     <button class="btn secondary-btn no-print" style="margin-top: 5px;" 
             onclick="addMachineRow()">Add Machine</button>
 </div>
+
 
 <!-- Attendance Section -->
 <div class="form-section" style="margin-top: 20px;">
@@ -682,6 +750,7 @@
             onclick="addPoleStockRow()">Add Stock Entry</button>
 </div>
 
+
 <!-- Stock on Bed Section -->
 <div class="form-section" style="margin-top: 20px;">
     <h3 style="font-size: 14px; margin: 10px 0 5px 0;">Stock on Bed</h3>
@@ -693,7 +762,6 @@
                 <th>Tender No</th>
                 <th>Pole Type</th>
                 <th>Pole Qty</th>
-                <th>Pole Numbers</th>
                 <th class="no-print">Action</th>
             </tr>
         </thead>
@@ -734,9 +802,6 @@
                 </td>
                 <td>
                     <input type="number" class="form-control">
-                </td>
-                 <td>
-                    <input type="text" class="form-control">
                 </td>
                 <td class="no-print">
                     <button class="btn secondary-btn" style="padding: 3px 6px; font-size: 10px;" 
@@ -1324,9 +1389,6 @@ function addPoleStockRow() {
         <td>
             <input type="number" class="form-control">
         </td>
-        <td>
-            <input type="text" class="form-control">
-        </td>
         <td class="no-print">
             <button class="btn secondary-btn" style="padding: 3px 6px; font-size: 10px;" 
                     onclick="removePoleStockRow(this)">Remove</button>
@@ -1416,6 +1478,7 @@ function removeStockOnBedRow(button) {
     const row = button.closest('tr');
     row.parentNode.removeChild(row);
 }
+
 
 // Helper function to update product type based on tender selection
 function updateProductTypeFromTender(selectElement) {
