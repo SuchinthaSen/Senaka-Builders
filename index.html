@@ -130,7 +130,7 @@
             }
         }
         .materials-table td:last-child {
-            width: 25%;
+            width: 100%;
         }
         .materials-table select, .materials-table input {
             width: 100%;
@@ -210,30 +210,14 @@
 }
 
 /* Add these to the existing styles */
-@media (max-width: 768px) {
-    /* For smaller screens, revert to the original 3-column layout */
-    .materials-table th:nth-child(n+4), 
-    .materials-table td:nth-child(n+4) {
-        display: none;
-    }
-    
-    /* And add the missing items as additional rows */
-    .materials-table .mobile-only-row {
-        display: table-row;
-    }
-}
 
-@media (min-width: 769px) {
-    .materials-table .mobile-only-row {
-        display: none;
-    }
-}@media print {
+
+@media print {
     .no-print {
         display: none !important;
     }
     .container {
         max-width: 100% !important;
-        margin: 10mm !important;
         padding: 10mm !important;
         box-shadow: none !important;
         border: 2px solid #2e7d32 !important;
@@ -244,10 +228,11 @@
     }
     /* Make tables more compact when printing */
     table {
-        font-size: 12px !important;
+        font-size: 10px !important;
+        width: 100%;
     }
     input, select {
-        font-size: 12px !important;
+        font-size: 10px !important;
     }
     /* Further reduce spacing for print */
     .form-group {
@@ -259,8 +244,7 @@
     /* Scale entire page to fit on A4 */
     @page {
         size: A4;
-        margin: 0mm;
-        scale: 80%;
+        scale: 100%;
     }
     html, body {
         width: 210mm;
@@ -283,7 +267,7 @@
 .materials-table th, .materials-table td {
     padding: 4px;  /* Reduced padding to save space */
     vertical-align: middle;
-    width: 10%; /* Equal width for all 8 columns (100% ÷ 10) */
+    width: 33.3%; /* Equal width for all 8 columns (100% ÷ 10) */
 }
 
 .materials-table .form-control {
@@ -299,6 +283,8 @@
     min-width: 50px;
 }
 
+
+
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
     /* Hide additional columns on mobile */
@@ -309,7 +295,7 @@
     
     /* Adjust width for the visible columns */
     .materials-table th, .materials-table td {
-        width: 25%; /* For the 4 visible columns (100% ÷ 4) */
+        width: 50%; /* For the 4 visible columns (100% ÷ 2) */
     }
 }
     </style>
@@ -415,6 +401,22 @@
                     </div>
                 </div>
 
+                <div class="grid-container">
+                    <div class="form-group">
+                        <label for="PoleType">Weather:</label>
+                        <select class="form-control">
+                            <option value="Rainy">Rainy</option>
+                            <option value="Cloudy">Cloudy</option>
+                            <option value="Sunny">Sunny</option>
+                </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="totalQty">Cubes casted today:</label>
+                        <input type="text" id="totalQty" class="form-control">
+                    </div>
+                </div>
+
                 <!-- Materials Used Section - Modified to 8 columns -->
 <h3 style="font-size: 14px; margin: 10px 0 5px 0;">Materials Used</h3>
 <table class="materials-table">
@@ -423,156 +425,53 @@
         <tr>
             <th>Material</th>
             <th>UOM</th>
-            <th>Available Qty</th>
-            <th>UOM</th>
-            <th>Request Qty</th>
-            <th>Material</th>
-            <th>UOM</th>
-            <th>Available Qty</th>
-            <th>UOM</th>
             <th>Request Qty</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Sand</td>
-            <td>
-                <select class="form-control">
-                    <option value="Kg">Kg</option>
-                    <option value="M3">M3</option>
-                    <option value="Cube">Cube</option>
-                    <option value="Gauge boxes">Guage Boxes</option>
-                </select>
-            </td>
-            <td>
-                <input type="number" step="0.01" class="form-control">
-            </td>
-            <td>
-                <select class="form-control">
-                    <option value="Kg">Kg</option>
-                    <option value="M3">M3</option>
-                    <option value="Cube">Cube</option>
-                    <option value="Gauge boxes">Guage Boxes</option>
-                </select>
-            </td>
-            <td>
-                <input type="number" step="0.01" class="form-control">
-            </td>
-            <td>Metal</td>
-            <td>
-                <select class="form-control">
-                    <option value="Kg">Kg</option>
-                    <option value="M3">M3</option>
-                    <option value="Cube">Cube</option>
-                    <option value="Gauge boxes">Guage Boxes</option>
-                </select>
-            </td>
-            <td>
-                <input type="number" step="0.01" class="form-control">
-            </td>
-            <td>
-                <select class="form-control">
-                    <option value="Kg">Kg</option>
-                    <option value="M3">M3</option>
-                    <option value="Cube">Cube</option>
-                    <option value="Gauge boxes">Guage Boxes</option>
-                </select>
-            </td>
-            <td>
-                <input type="number" step="0.01" class="form-control">
-            </td>
-        </tr>
-        <tr>
             <td>Cement</td>
             <td>
                 <select class="form-control">
                     <option value="Kg">Kg</option>
-                    <option value="Gauge boxes">Guage Boxes</option>
+                    <option value="Guage Boxes">Guage Boxes</option>
                     <option value="Bags">Bags</option>
                 </select>
             </td>
             <td>
                 <input type="number" step="0.01" class="form-control">
             </td>
-            <td>
-                <select class="form-control">
-                    <option value="Kg">Kg</option>
-                    <option value="Gauge boxes">Guage Boxes</option>
-                    <option value="Bags">Bags</option>
-                </select>
-            </td>
-            <td>
-                <input type="number" step="0.01" class="form-control">
-            </td>
-            <td>Tor Bar</td>
-            <td>
-                <select class="form-control">
-                    <option value="Meter">Meter</option>
-                    <option value="Feets">Feets</option>
-                    <option value="Kg">Kg</option>
-                    <option value="Rods">Rods</option>
-                </select>
-            </td>
-            <td>
-                <input type="number" step="0.01" class="form-control">
-            </td>
-            <td>
-                <select class="form-control">
-                    <option value="Meter">Meter</option>
-                    <option value="Feets">Feets</option>
-                    <option value="Kg">Kg</option>
-                    <option value="Rods">Rods</option>
-                </select>
-            </td>
-            <td>
-                <input type="number" step="0.01" class="form-control">
-            </td>
+            
+            
         </tr>
         <tr>
-            <td>MS Coil</td>
+            <td>Sand</td>
             <td>
                 <select class="form-control">
-                    <option value="Meter">Meter</option>
-                    <option value="Feets">Feets</option>
                     <option value="Kg">Kg</option>
-                    <option value="Rods">Rods</option>
+                    <option value="Guage Boxes">Guage Boxes</option>
+                    
                 </select>
             </td>
             <td>
                 <input type="number" step="0.01" class="form-control">
             </td>
+           
+          
+        </tr>
+        <tr>
+            <td>Metal</td>
             <td>
                 <select class="form-control">
-                    <option value="Meter">Meter</option>
-                    <option value="Feets">Feets</option>
                     <option value="Kg">Kg</option>
-                    <option value="Rods">Rods</option>
+                    <option value="Guage Boxes">Guage Boxes</option>
                 </select>
             </td>
             <td>
                 <input type="number" step="0.01" class="form-control">
             </td>
-            <td>HTS</td>
-            <td>
-                <select class="form-control">
-                    <option value="Meter">Meter</option>
-                    <option value="Feets">Feets</option>
-                    <option value="Kg">Kg</option>
-                </select>
-            </td>
-            <td>
-                <input type="number" step="0.01" class="form-control">
-            </td>
-            <td>
-                <select class="form-control">
-                    <option value="Meter">Meter</option>
-                    <option value="Feets">Feets</option>
-                    <option value="Kg">Kg</option>
-                </select>
-            </td>
-            <td>
-                <input type="number" step="0.01" class="form-control">
-            </td>
+            
+           
         </tr>
         <tr>
             <td>Admixture</td>
@@ -580,138 +479,39 @@
                 <select class="form-control">
                     <option value="Kg">Kg</option>
                     <option value="Liters">Liters</option>
-                    <option value="Bags">Bags</option>
                 </select>
             </td>
 
             <td>
                 <input type="number" step="0.01" class="form-control">
             </td>
+            
+           
+                    
+            
+        </tr>
+        <tr>
+            <td>Water</td>
             <td>
                 <select class="form-control">
                     <option value="Kg">Kg</option>
                     <option value="Liters">Liters</option>
-                    <option value="Bags">Bags</option>
                 </select>
             </td>
+
             <td>
                 <input type="number" step="0.01" class="form-control">
             </td>
-            <td>Binding</td>
-            <td>
-                <select class="form-control">
-                    <option value="Kg">Kg</option>
-                    <option value="Roll">Roll</option>        
-                </select>
-            </td>
-            <td>
-                <input type="number" step="0.01" class="form-control">
-            </td>
-            <td>
-                <select class="form-control">
-                    <option value="Kg">Kg</option>
-                    <option value="Roll">Roll</option>
+            
+           
                     
-                </select>
-            </td>
-            <td>
-                <input type="number" step="0.01" class="form-control">
-            </td>
+            
         </tr>
     </tbody>
 </table>
             </div>
 
-<!-- Machinery Status Section -->
-<div class="form-section" style="margin-top: 20px;">
-    <h3 style="font-size: 14px; margin: 10px 0 5px 0;">Machinery Status</h3>
-    <table id="machineryTable">
-        <thead>
-            <tr>
-                <th>Machine Type</th>
-                <th>Status</th>
-                <th class="no-print">Action</th>
-            </tr>
-        </thead>
 
-<tbody id="machineryTableBody">
-    <tr>
-        <td>
-            <select class="form-control">
-                <option value="">-- Select Machine --</option>
-                <option value="Loader">Loader</option>
-                <option value="JCB">JCB</option>
-                <option value="Jack Machine">Jack Machine</option>
-                <option value="Poker">Poker Machine</option>
-                <option value="Tracter">Tracter</option>
-                <option value="Truck Mixer">Truck Mixer</option>
-                <option value="Other">Other</option>
-            </select>
-        </td>
-        <td>
-            <select class="form-control">
-                <option value="N/A">N/A</option>
-                <option value="Operating">Operating</option>
-                <option value="Idle">Idle</option>
-                <option value="Breakdown">Breakdown</option>
-                <option value="Under Repair">Under Repair</option>
-            </select>
-        </td>
-        <td class="no-print">
-            <button class="btn secondary-btn" style="padding: 3px 6px; font-size: 10px;" 
-                    onclick="removeMachineRow(this)">Remove</button>
-        </td>
-    </tr>
-</tbody>
-    </table>
-    <button class="btn secondary-btn no-print" style="margin-top: 5px;" 
-            onclick="addMachineRow()">Add Machine</button>
-</div>
-
-
-<!-- Attendance Section -->
-<div class="form-section" style="margin-top: 20px;">
-    <h3 style="font-size: 14px; margin: 10px 0 5px 0;">Attendance</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Role</th>
-                <th>Headcount</th>
-                <th>Role</th>
-                <th>Headcount</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Office Staff</td>
-                <td><input type="number" class="form-control"></td>
-                <td>Production Labours</td>
-                <td><input type="number" class="form-control"></td>
-            </tr>
-            <tr>
-                <td>Company Labours</td>
-                <td><input type="number" class="form-control"></td>
-                <td>Machine Operators</td>
-                <td><input type="number" class="form-control"></td>
-            </tr>
-            <tr>
-                <td>Welders</td>
-                <td><input type="number" class="form-control"></td>
-                <td>Bar Benders</td>
-                <td><input type="number" class="form-control"></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-<!-- Cash Status Section -->
-<div class="form-section" style="margin-top: 20px;">
-    <h3 style="font-size: 14px; margin: 10px 0 5px 0;">Cash Status</h3>
-    <div class="form-group">
-        <label for="pettyCash">Petty Cash Balance:</label>
-        <input type="number" id="pettyCash" class="form-control" step="0.01">
-    </div>
-</div>
 
 <!-- Pole Stock Section -->
 <div class="form-section" style="margin-top: 20px;">
